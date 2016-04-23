@@ -1,0 +1,22 @@
+import requests
+from bs4 import BeautifulSoup
+
+i = 0
+
+
+# 保存图片
+def save_jpg(res_url):
+    global i
+    html = BeautifulSoup(requests.get(res_url).text)
+    for link in html.find_all('a', {'class': 'view_img_link'}):
+        with open('{}.jpg'.format(i), 'wb') as jpg:
+            jpg.write(requests.get(link.get('href')).content)
+        i += 1
+
+
+#  抓取煎蛋妹子图片，默认抓取5页
+if __name__ == '__main__':
+    url = 'http://jandan.net/ooxx'
+    for i in range(0, 5):
+        save_jpg(url)
+        url = BeautifulSoup(requests.get(url).text).find('a', {'class': 'previous-comment-page'}).get('href')
