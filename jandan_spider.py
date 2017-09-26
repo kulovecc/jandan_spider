@@ -21,4 +21,4 @@ if __name__ == '__main__':
     url = 'http://jandan.net/ooxx'
     for i in range(0, 5):
         save_jpg(url)
-        url = BeautifulSoup(requests.get(url, headers=headers).text).find('a', {'class': 'previous-comment-page'}).get('href')
+        url = "http:" + BeautifulSoup(requests.get(url, headers=headers).text).find('a', {'class': 'previous-comment-page'}).get('href')
