@@ -5,6 +5,3 @@
 pip install requests
 pip install BeautifulSoup4
 ```
-#### 爬取结果如下(要不要打码呢..)
-
-![image](https://github.com/bdqy/jiandan_jpg_spider/blob/master/view.png?raw=true)
